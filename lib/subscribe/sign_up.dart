@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../common/widgets/custom_buttons.dart';
-import 'sign_in.dart';
+import 'verify_code.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -14,11 +14,11 @@ class SignUp extends StatefulWidget {
 }
 
 class SignUpState extends State<SignUp> {
- 
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Scaffold(
+      appBar: AppBar(),
         resizeToAvoidBottomInset: true,
         body: SafeArea(
           child: Padding(
@@ -32,12 +32,13 @@ class SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
-                    height: 15.h,
+                    height: 10.h,
                   ),
                   Text(
-                    "Phone Registration",
-                    style: theme.textTheme.titleLarge?.copyWith(
-                      fontSize: 25,
+                    "Phone\nRegistration",
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w800,
                     ),
                   ),
                   SizedBox(
@@ -65,26 +66,32 @@ class SignUpState extends State<SignUp> {
                     children: [
                       // Country
                       DropdownButtonFormField(
-                       isExpanded: true,
-                       decoration: InputDecoration(
-                        contentPadding: EdgeInsets.symmetric(
-                         horizontal: 3.w),
-                        prefix: Padding(
-                          padding: EdgeInsets.only(top:0.5.h,right: 5.w),
-                          child: Image.asset("assets/icon/ghana.png",
-                                                 width: 5.w,
-                          ),
-                        )
-                       ),
-                       items: const [
-                            DropdownMenuItem(value: 1, child: Text("Ghana"),),
-                            DropdownMenuItem(value: 2,child: Text("USA")),
-                            DropdownMenuItem(value: 3,child: Text("Nigeria")),
-                            DropdownMenuItem(value: 4,child: Text("United Kingdom")),
-                            DropdownMenuItem(value: 5,child: Text("South Africa")),
+                          isExpanded: true,
+                          decoration: InputDecoration(
+                              contentPadding:
+                                  EdgeInsets.symmetric(horizontal: 3.w),
+                              prefix: Padding(
+                                padding:
+                                    EdgeInsets.only(top: 0.5.h, right: 5.w),
+                                child: Image.asset(
+                                  "assets/icon/ghana.png",
+                                  width: 5.w,
+                                ),
+                              )),
+                          items: const [
+                            DropdownMenuItem(
+                              value: 1,
+                              child: Text("Ghana"),
+                            ),
+                            DropdownMenuItem(value: 2, child: Text("USA")),
+                            DropdownMenuItem(value: 3, child: Text("Nigeria")),
+                            DropdownMenuItem(
+                                value: 4, child: Text("United Kingdom")),
+                            DropdownMenuItem(
+                                value: 5, child: Text("South Africa")),
                           ],
                           onChanged: (context) {}),
-SizedBox(
+                      SizedBox(
                         height: 2.5.h,
                       ),
                       //Number Field
@@ -99,7 +106,7 @@ SizedBox(
                       TextFormField(
                         keyboardType: const TextInputType.numberWithOptions(),
                         decoration: const InputDecoration(
-                                hintText: '+2330985674',
+                          hintText: '+2330985674',
                         ),
                       ),
                       // FormField End
@@ -111,10 +118,10 @@ SizedBox(
                   //Submit Button
                   Button(
                       onTap: () {
-                         Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SignIn()));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const VerifyCode()));
                       },
                       borderRadius: 8,
                       color: const Color.fromARGB(255, 8, 3, 78),

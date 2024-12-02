@@ -1,5 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cashpay/subscribe/sign_in.dart';
+import 'package:cashpay/subscribe/verify_code.dart';
 import 'package:flutter/material.dart';
 import 'package:cashpay/common/widgets/custom_buttons.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -78,15 +78,32 @@ class CashPayInfoState extends State<CashPayInfo> {
                 ),
                 Text(
                   "The Fastest, Easier way to pay",
-                  style: theme.textTheme.titleLarge?.copyWith(
+                  style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800, fontStyle: FontStyle.italic),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 1.h,
                 ),
-                const Text("Up to 10 days of buyer protection"),
-                const Text("No need to top up your wallet"),
-                const Text("Free return shipping and faster"),
+                Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Up to 10 days of buyer protection",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        "No need to top up your wallet",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        "Free return shipping and faster",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
             Column(
@@ -100,15 +117,33 @@ class CashPayInfoState extends State<CashPayInfo> {
                 ),
                 Text(
                   "Send and Request payment with cashpay",
-                  style: theme.textTheme.titleLarge?.copyWith(
+                  style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800, fontStyle: FontStyle.italic),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 1.h,
                 ),
-                 const Text("Up to 10 days of buyer protection"),
-                const Text("No need to top up your wallet"),
-                const Text("Free return shipping and faster"),],
+                Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Up to 10 days of buyer protection",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        "No need to top up your wallet",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        "Free return shipping and faster",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
             Column(
               children: [
@@ -121,15 +156,33 @@ class CashPayInfoState extends State<CashPayInfo> {
                 ),
                 Text(
                   "Shop worry free with cashpay",
-                  style: theme.textTheme.titleLarge?.copyWith(
+                  style: theme.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w800, fontStyle: FontStyle.italic),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 1.h,
                 ),
-                const Text("Up to 10 days of buyer protection"),
-                const Text("No need to top up your wallet"),
-                const Text("Free return shipping and faster"),],
+                Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Up to 10 days of buyer protection",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        "No need to top up your wallet",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        "Free return shipping and faster",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
             Column(
               children: [
@@ -142,17 +195,35 @@ class CashPayInfoState extends State<CashPayInfo> {
                 ),
                 Text(
                   "Chack out fastest cord lin in cashpay",
-                  style: theme.textTheme.titleLarge?.copyWith(
+                  style: theme.textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                     fontStyle: FontStyle.italic,
                   ),
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(
                   height: 1.h,
                 ),
-                const Text("Up to 10 days of buyer protection"),
-                const Text("No need to top up your wallet"),
-                const Text("Free return shipping and faster"),],
+                Align(
+                  alignment: Alignment.center,
+                  child: Column(
+                    children: [
+                      Text(
+                        "Up to 10 days of buyer protection",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        "No need to top up your wallet",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                      Text(
+                        "Free return shipping and faster",
+                        style: theme.textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
+                )
+              ],
             ),
           ],
         ),
@@ -206,6 +277,7 @@ class LogInState extends State<LogIn> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Scaffold(
+        appBar: AppBar(),
         resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Padding(
@@ -222,39 +294,46 @@ class LogInState extends State<LogIn> {
                     height: 2.h,
                   ),
                   Stack(
-                    alignment: Alignment.topCenter,
                     children: [
-                      Image.asset(
-                        "assets/logo/cash.png",
-                        height: 15.h,
-                        width: 58.w,
-                      ),
-                      Positioned(
-                        bottom: 5.h,
-                        right: 0.w,
-                        child: Text.rich(
-                          TextSpan(
-                              text: "Cash",
-                              style: theme.textTheme.bodyLarge?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                fontSize: 25,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text: 'Pay',
-                                  style: theme.textTheme.bodyLarge?.copyWith(
-                                    fontWeight: FontWeight.w700,
-                                    color: theme.primaryColor,
-                                    fontSize: 25,
-                                  ),
-                                )
-                              ]),
+                      Align(
+                        alignment: Alignment.center,
+                        child: Image.asset(
+                          "assets/logo/cashlogo.png",
+                          height: 15.h,
+                          width: 50.w,
                         ),
                       ),
+                      // Positioned(
+                      //   bottom: 5.h,
+                      //   right:20.w,
+                      //   child: Text.rich(
+                      //     TextSpan(
+                      //         text: "Cash",
+                      //         style: theme.textTheme.bodyLarge?.copyWith(
+                      //           fontWeight: FontWeight.w700,
+                      //           fontSize: 20,
+                      //         ),
+                      //         children: [
+                      //           TextSpan(
+                      //             text: 'Pay',
+                      //             style: theme.textTheme.bodyLarge?.copyWith(
+                      //               fontWeight: FontWeight.w700,
+                      //               color: theme.primaryColor,
+                      //               fontSize: 20,
+                      //             ),
+                      //           )
+                      //         ]),
+                      //   ),
+                      // ),
                       Positioned(
                           bottom: 3.h,
-                          right: 0.w,
-                          child: const Text("The safer, easier way to pay"))
+                          left: 10.w,
+                          right: 10.w,
+                          child: Text(
+                            "The safer, easier way to pay",
+                            style: theme.textTheme.bodySmall,
+                            textAlign: TextAlign.center,
+                          ))
                     ],
                   ),
                   SizedBox(
@@ -266,16 +345,15 @@ class LogInState extends State<LogIn> {
                       children: [
                         Text(
                           "Fast & Secure",
-                          style: theme.textTheme.titleLarge?.copyWith(
+                          style: theme.textTheme.titleMedium?.copyWith(
                               fontWeight: FontWeight.w800,
-                              fontSize: 25,
+                              fontSize: 18,
                               fontStyle: FontStyle.italic),
                         ),
                         Text(
                           "the safer and easier way to pay with cashpay",
                           style: theme.textTheme.bodySmall?.copyWith(
                             color: theme.primaryColor,
-                            fontSize: 15,
                           ),
                           softWrap: true,
                         ),
@@ -289,10 +367,10 @@ class LogInState extends State<LogIn> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SignIn()));
+                                builder: (context) => const VerifyCode()));
                       },
                       borderRadius: 8,
-                      color: const Color.fromARGB(255, 8, 3, 78),
+                      color: const Color(0xFF08034E),
                       //  padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20.w),
                       buttonText: 'Sign In'),
                   SizedBox(
@@ -307,7 +385,7 @@ class LogInState extends State<LogIn> {
                               MaterialPageRoute(
                                   builder: (context) => const SignUp()));
                         },
-                        child: const Text("Create a new accountt")),
+                        child: Text("Create a new accountt",style: theme.textTheme.bodySmall)),
                   ),
                 ],
               ),

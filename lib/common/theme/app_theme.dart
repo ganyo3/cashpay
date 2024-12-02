@@ -95,13 +95,13 @@ class AppTheme {
         ),
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
       ),
-      iconButtonTheme: const IconButtonThemeData(
+      iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
           // padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 1.5.w)),
           visualDensity: VisualDensity.compact,
 
           iconColor: WidgetStatePropertyAll(Color(0xff169ed9)),
-          // backgroundColor: WidgetStatePropertyAll(Color(0xffD2EBE7)),
+          // backgroundColor: WidgetStatePropertyAll(Colors.grey.shade500),
           // iconSize: WidgetStatePropertyAll(25),
           shape: WidgetStatePropertyAll(RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(5)))),
@@ -132,9 +132,9 @@ class AppTheme {
 
       iconTheme: const IconThemeData(color: Colors.black, size: 25.0),
       //TextFormField
-      inputDecorationTheme: InputDecorationTheme(
+     inputDecorationTheme: InputDecorationTheme(
         filled: true,
-        fillColor: Colors.grey.shade200,
+       fillColor: Colors.grey.shade200,
         // isDense: true,
         suffixIconColor: Colors.grey.shade400,
         border: OutlineInputBorder(
@@ -142,32 +142,32 @@ class AppTheme {
             borderSide: BorderSide.none),
         hintStyle:
             textThemeLight.labelMedium?.copyWith(color: Colors.grey.shade500),
-        // focusedBorder: const OutlineInputBorder(
-        //     borderRadius: BorderRadius.all(
-        //       Radius.circular(10),
-        //     ),
-        //     borderSide: BorderSide(
-        //       width: .8,
-        //       color: Color(0xffD2EBE7),
-        //     )),
+        focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(
+              Radius.circular(10),
+            ),
+            borderSide: BorderSide(
+              width: 1.w,
+              color: Color(0xffD2EBE7),
+            )),
       ),
       //ExpansionTile
-      // expansionTileTheme: ExpansionTileThemeData(
-      //   backgroundColor: Colors.grey.shade200,
-      //   collapsedBackgroundColor: Colors.grey.shade200,
-      //   expandedAlignment: Alignment.center,
-      //   childrenPadding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 0.8.h),
-      //   shape: const ContinuousRectangleBorder(
-      //     borderRadius: BorderRadius.all(
-      //       Radius.circular(20),
-      //     ),
-      //   ),
-      //   collapsedShape: const ContinuousRectangleBorder(
-      //     borderRadius: BorderRadius.all(
-      //       Radius.circular(20),
-      //     ),
-      //   ),
-      // ),
+      expansionTileTheme: ExpansionTileThemeData(
+        backgroundColor: Colors.grey.shade200,
+        collapsedBackgroundColor: Colors.grey.shade200,
+         expandedAlignment: Alignment.centerLeft,
+         childrenPadding: EdgeInsets.symmetric(horizontal: 5.w,vertical: 1.h),
+        shape: const ContinuousRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
+        ),
+        collapsedShape: const ContinuousRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
+        ),
+      ),
       // chipTheme
       chipTheme: ChipThemeData(
         backgroundColor:Colors.grey.shade500,

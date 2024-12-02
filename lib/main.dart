@@ -16,7 +16,7 @@ void main() {
           title: "Cash Pay",
           home: const CashPayInfo(),
         );
-      },
+      },  
     ),
   );
 }

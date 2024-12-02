@@ -19,6 +19,7 @@ class SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Scaffold(
+        appBar: AppBar(),
         resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Padding(
@@ -61,21 +62,7 @@ class SignInState extends State<SignIn> {
                                     ),
                                   )
                                 ]),
-                          )
-                          // Row(
-                          //   children: [
-                          //     Text("Cash", style: theme.textTheme.bodyLarge?.copyWith(
-                          //       fontWeight: FontWeight.w700,
-                          //       fontSize: 25,
-                          //     ),),
-                          //     Text("Pay",style: theme.textTheme.bodyLarge?.copyWith(
-                          //       fontWeight: FontWeight.w700,
-                          //       color: theme.primaryColor,
-                          //       fontSize: 25,
-                          //     ),),
-                          //   ],
-                          // )
-                          )
+                          ))
                     ],
                   ),
                   Text(
@@ -99,26 +86,25 @@ class SignInState extends State<SignIn> {
                     children: [
                       // Email
                       TextFormField(
-                          decoration:
-                              const InputDecoration(hintText: 'Enter username or email')
-                                  .applyDefaults(theme.inputDecorationTheme)),
+                          decoration: InputDecoration(
+                                 hintText: 'Enter username or email')
+                              .applyDefaults(theme.inputDecorationTheme)),
                       SizedBox(
                         height: 1.h,
                       ),
                       // Password
                       TextFormField(
-                        decoration: const InputDecoration(
+                          // keyboardType: TextInputType.numberWithOptions(),
+                          decoration: InputDecoration(
                                 hintText: 'Password',
-                                suffixIcon: Icon(Icons.visibility))
-                            .applyDefaults(theme.inputDecorationTheme),
-                        obscureText: true,
-                      ),
+                                  suffixIcon: Icon(Icons.visibility))
+                              .applyDefaults(theme.inputDecorationTheme),
+                          obscureText: true,
+                        ),
                       // FormField End
                     ],
                   ),
-                  SizedBox(
-                    height: 2.h,
-                  ),
+                  Spacer(),
                   //Submit Button
                   Button(
                       onTap: () {
@@ -136,11 +122,11 @@ class SignInState extends State<SignIn> {
                   ),
                   Button(
                       onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const SignUp()));
-                        },
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignUp()));
+                      },
                       borderRadius: 8,
                       color: theme.primaryColor,
                       //  padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20.w),

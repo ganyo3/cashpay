@@ -2,6 +2,8 @@ import 'package:cashpay/operation/mycard.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'operation/Transfer/transfer.dart';
+
 class Dashboard extends StatefulWidget {
   @override
   const Dashboard({super.key});
@@ -19,11 +21,11 @@ class DashboardState extends State<Dashboard> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 8, 3, 78),
-        // leading: callDrawer(context),
         actions: [
           Image.asset("assets/logo/logo1.png"),
         ],
       ),
+        //callDrawer(context),
       drawer: callDrawer(context),
       body: ListView(
         children: [
@@ -113,23 +115,29 @@ class DashboardState extends State<Dashboard> {
                 crossAxisSpacing: 2.w,
                 children: [
                   //Transfer Button
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 3.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            Icons.swap_horiz_outlined,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                          Text("Transfer", style: theme.textTheme.titleSmall),
-                        ],
+                  GestureDetector(
+                    onTap: (){
+                       Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Transfer()));
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.grey),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 3.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Image(
+                              height: 4.h,
+                              image:AssetImage("assets/logo/swap.png")),
+                            Text("Transfer", style: theme.textTheme.titleSmall),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -150,12 +158,11 @@ class DashboardState extends State<Dashboard> {
                         padding: EdgeInsets.symmetric(vertical: 3.h),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const Icon(
-                              Icons.credit_card_outlined,
-                              color: Colors.black,
-                              size: 30,
-                            ),
+                            Image(
+                              height: 4.h,
+                              image:AssetImage("assets/logo/credit-cards.png")),
                             Text("My Card", style: theme.textTheme.titleSmall),
                           ],
                         ),
@@ -193,12 +200,11 @@ class DashboardState extends State<Dashboard> {
                       padding: EdgeInsets.symmetric(vertical: 3.h),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Icon(
-                            Icons.print,
-                            color: Colors.black,
-                            size: 30,
-                          ),
+                          Image(
+                              height: 4.h,
+                              image:AssetImage("assets/logo/insert-card.png")),
                           Text("Transfer", style: theme.textTheme.titleSmall),
                         ],
                       ),
@@ -214,12 +220,11 @@ class DashboardState extends State<Dashboard> {
                       padding: EdgeInsets.symmetric(vertical: 3.h),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Icon(
-                            Icons.balance_outlined,
-                            color: Colors.black,
-                            size: 30,
-                          ),
+                           Image(
+                              height: 4.h,
+                              image:AssetImage("assets/logo/balance.png")),
                           Text("Budget", style: theme.textTheme.titleSmall),
                         ],
                       ),
@@ -235,12 +240,11 @@ class DashboardState extends State<Dashboard> {
                       padding: EdgeInsets.symmetric(vertical: 3.h),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          const Icon(
-                            Icons.bar_chart,
-                            color: Colors.black,
-                            size: 30,
-                          ),
+                          Image(
+                              height: 4.h,
+                              image:AssetImage("assets/logo/business.png")),
                           Text("Analytics", style: theme.textTheme.titleSmall),
                         ],
                       ),
@@ -295,7 +299,7 @@ class DashboardState extends State<Dashboard> {
                                 Icons.account_circle,
                                 color: theme.primaryColor,
                               ),
-                              Text("Personal Inforation",
+                              Text("Personal Information",
                                   style: theme.textTheme.titleLarge?.copyWith(
                                     fontWeight: FontWeight.w800,
                                   ))

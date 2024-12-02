@@ -19,7 +19,9 @@ class ProfileState extends State<Profile> {
      appBar: AppBar(
       backgroundColor: const Color.fromARGB(255, 8, 3, 78),
         // leading: callDrawer(context),
-       title: const Text("Detail"),
+       title: Text("Detail",style: theme.textTheme.titleLarge?.copyWith(
+        color: Colors.white
+       ),),
       ),
        body: ListView(
         children: [
