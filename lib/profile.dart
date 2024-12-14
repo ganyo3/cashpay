@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import 'common/widgets/custom_buttons.dart';
+
 class Profile extends StatefulWidget {
   @override
   const Profile({super.key});
@@ -17,17 +19,19 @@ class ProfileState extends State<Profile> {
   var theme = Theme.of(context);
     return Scaffold(
      appBar: AppBar(
-      backgroundColor: const Color.fromARGB(255, 8, 3, 78),
+      automaticallyImplyLeading: false,
+      backgroundColor: const Color(0xFF08034E),
         // leading: callDrawer(context),
-       title: Text("Detail",style: theme.textTheme.titleLarge?.copyWith(
+       title: Text("Detail",style: theme.textTheme.labelLarge?.copyWith(
         color: Colors.white
        ),),
       ),
        body: ListView(
+        padding: EdgeInsets.only(bottom:2.h),
         children: [
           Container(
             decoration: const BoxDecoration(
-              color: Color.fromARGB(255, 8, 3, 78),
+              color: Color(0xFF08034E),
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -35,7 +39,7 @@ class ProfileState extends State<Profile> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 2.h,
+                    height: 1.h,
                   ),
                   CircleAvatar(
                     radius: 10.w,
@@ -46,18 +50,21 @@ class ProfileState extends State<Profile> {
                     "Dion Morgan",
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: Colors.white,
-                      fontSize: 25,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w800
                     ),
                   ),
                   Text(
                     "cashpay.me/username",
-                    style: theme.textTheme.bodyMedium?.copyWith(
+                    style: theme.textTheme.bodySmall?.copyWith(
                       color: Colors.white,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w800
                     ),
                   ),
                 Divider(
                     height: 4.h,
-                    color: Colors.grey,
+                    color: Colors.grey.shade300,
                   ),
                  ],
               ),
@@ -73,19 +80,25 @@ class ProfileState extends State<Profile> {
               children: [
                 Text(
                   "Email",
-                  style: theme.textTheme.titleLarge?.copyWith(
+                  style: theme.textTheme.labelMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                ElevatedButton(
-                  style: theme.elevatedButtonTheme.style?.copyWith(
-                    shape: WidgetStatePropertyAll(ContinuousRectangleBorder(borderRadius: BorderRadius.circular(30))),
-                    side: const WidgetStatePropertyAll(BorderSide(color: Colors.grey)),
-                    backgroundColor:const WidgetStatePropertyAll(Colors.white),
-                    padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 2.w))
-                  ),
-                  onPressed: (){}, 
-                  child:Text("+ Add",style: theme.textTheme.labelMedium?.copyWith(color: Colors.black),))
+                Button(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const SignUp()));
+                        },
+                        borderColor: Colors.grey.shade700,
+                        borderRadius: 6,
+                       fontSize: 10,
+                        textColor: Colors.grey.shade700,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 3.w),
+                        buttonText: '+ ADD',
+                      ),
               ],
             ),
           ),
@@ -93,6 +106,7 @@ class ProfileState extends State<Profile> {
         Container(
           padding: EdgeInsets.symmetric(vertical: 1.h),
           margin: EdgeInsets.symmetric(
+            vertical: .8.h,
             horizontal: 8.w
           ),
           decoration: BoxDecoration(
@@ -103,7 +117,7 @@ class ProfileState extends State<Profile> {
                   child: Padding(
                     padding:EdgeInsets.symmetric(
                       horizontal: 2.5.w,
-                    ),
+                     ),
                     child: Column(
                      children: [
                         Row(
@@ -111,16 +125,16 @@ class ProfileState extends State<Profile> {
                           children: [
                           Row(
                             children: [
-                              const Icon(Icons.email_outlined,),
+                              const Icon(Icons.email_outlined,size: 15,),
                               SizedBox(width: 1.w,),
                           Text("username@gmail.com",
-                          style: theme.textTheme.labelMedium,
+                          style: theme.textTheme.bodySmall?.copyWith(color: Colors.grey.shade700),
                           ),
                             ],
                           ),
                           TextButton(
                             onPressed: () {},
-                            child: const Text("Edit")),
+                            child: Text("Edit",style: theme.textTheme.labelMedium?.copyWith(color: theme.primaryColor),)),
                         ],),
                      ],
                     ),
@@ -137,19 +151,25 @@ class ProfileState extends State<Profile> {
               children: [
                 Text(
                   "Phone Number",
-                  style: theme.textTheme.titleLarge?.copyWith(
+                  style: theme.textTheme.labelMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                ElevatedButton(
-                  style: theme.elevatedButtonTheme.style?.copyWith(
-                    shape: WidgetStatePropertyAll(ContinuousRectangleBorder(borderRadius: BorderRadius.circular(30))),
-                    side: const WidgetStatePropertyAll(BorderSide(color: Colors.grey)),
-                    backgroundColor:const WidgetStatePropertyAll(Colors.white),
-                    padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 2.w))
-                  ),
-                  onPressed: (){}, 
-                  child:Text("+ Add",style: theme.textTheme.labelMedium?.copyWith(color: Colors.black),))
+                 Button(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const SignUp()));
+                        },
+                        borderColor: Colors.grey.shade700,
+                        borderRadius: 6,
+                       fontSize: 10,
+                        textColor: Colors.grey.shade700,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 3.w),
+                        buttonText: '+ ADD',
+                      ),
               ],
             ),
           ),
@@ -157,7 +177,7 @@ class ProfileState extends State<Profile> {
         Container(
           padding: EdgeInsets.symmetric(vertical: 1.h),
           margin: EdgeInsets.symmetric(
-            horizontal: 8.w
+            horizontal: 8.w,vertical: .8.h,
           ),
           decoration: BoxDecoration(
             color:  Colors.grey.shade300,
@@ -177,16 +197,16 @@ class ProfileState extends State<Profile> {
                               children: [
                               Row(
                                 children: [
-                                  const Icon(Icons.local_phone_outlined,),
+                                  const Icon(Icons.local_phone_outlined,size: 15,),
                                     SizedBox(width: 1.w,),
                               Text("+233****7867",
-                              style: theme.textTheme.labelMedium,
+                              style: theme.textTheme.bodySmall,
                               ),
                                 ],
                               ),
                               TextButton(
                                 onPressed: () {},
-                                child: const Text("change")),
+                                child: Text("change",style: theme.textTheme.labelMedium?.copyWith(color:theme.primaryColor),)),
                             ],),
                          ],
                         ),
@@ -204,16 +224,16 @@ class ProfileState extends State<Profile> {
                               children: [
                               Row(
                                 children: [
-                                  const Icon(Icons.local_phone_outlined,),
+                                  const Icon(Icons.local_phone_outlined,size: 15,),
                                     SizedBox(width: 1.w,),
                               Text("+233****9563",
-                              style: theme.textTheme.labelMedium,
+                              style: theme.textTheme.bodySmall,
                               ),
                                 ],
                               ),
                               TextButton(
                                 onPressed: () {},
-                                child: const Text("change")),
+                                child: Text("change",style: theme.textTheme.labelMedium?.copyWith(color: theme.primaryColor),)),
                             ],),
                          ],
                         ),
@@ -232,19 +252,25 @@ class ProfileState extends State<Profile> {
               children: [
                 Text(
                   "Address",
-                  style: theme.textTheme.titleLarge?.copyWith(
+                  style: theme.textTheme.labelMedium?.copyWith(
                     fontWeight: FontWeight.w800,
                   ),
                 ),
-                ElevatedButton(
-                  style: theme.elevatedButtonTheme.style?.copyWith(
-                    shape: WidgetStatePropertyAll(ContinuousRectangleBorder(borderRadius: BorderRadius.circular(30))),
-                    side: const WidgetStatePropertyAll(BorderSide(color: Colors.grey)),
-                    backgroundColor:const WidgetStatePropertyAll(Colors.white),
-                    padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 2.w))
-                  ),
-                  onPressed: (){}, 
-                  child:Text("+ Add",style: theme.textTheme.labelMedium?.copyWith(color: Colors.black),))
+                 Button(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const SignUp()));
+                        },
+                        borderColor: Colors.grey.shade700,
+                        borderRadius: 6,
+                       fontSize: 10,
+                        textColor: Colors.grey.shade700,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 3.w),
+                        buttonText: '+ ADD',
+                      ),
               ],
             ),
           ),
@@ -252,7 +278,8 @@ class ProfileState extends State<Profile> {
         Container(
           padding: EdgeInsets.symmetric(vertical: 1.h),
           margin: EdgeInsets.symmetric(
-            horizontal: 8.w
+            horizontal: 8.w,
+            vertical: .8.h,
           ),
           decoration: BoxDecoration(
             color:  Colors.grey.shade300,
@@ -275,19 +302,19 @@ class ProfileState extends State<Profile> {
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    const Icon(Icons.home_outlined,),
+                                    const Icon(Icons.home_outlined,size: 15,),
                                       SizedBox(width: 1.w,),
                                 Column(
                                  crossAxisAlignment:CrossAxisAlignment.start,
                                  children: [
                                     Text("BLK56 PLT B",
-                                    style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.w800),
+                                    style: theme.textTheme.bodySmall,
                                     ),
                                 Text("Bake-Bread Street",
-                                style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.w800),
+                                style: theme.textTheme.bodySmall,
                                 ),
                                 Text("AR-0008-5434",
-                                style: theme.textTheme.labelMedium?.copyWith(fontWeight: FontWeight.w800),
+                                style: theme.textTheme.bodySmall,
                                 ),
                                   ],
                                 ),
@@ -295,7 +322,7 @@ class ProfileState extends State<Profile> {
                                 ),
                                 TextButton(
                                   onPressed: () {},
-                                  child: const Text("Edit")),
+                                  child: Text("Edit",style:theme.textTheme.labelMedium?.copyWith(color: theme.primaryColor),)),
                               ],),
                             ),
                          ],
@@ -312,7 +339,7 @@ class ProfileState extends State<Profile> {
              ),
             child: Text(
               "Account Options",
-              style: theme.textTheme.titleLarge?.copyWith(
+              style: theme.textTheme.labelMedium?.copyWith(
                 fontWeight: FontWeight.w800,
               ),
             ),
@@ -330,50 +357,49 @@ class ProfileState extends State<Profile> {
           ),
           child: Column(
             children: [
-              Card(
-                      child: Padding(
-                        padding:EdgeInsets.symmetric(
-                          horizontal: 2.5.w,
-                        ),
-                        child:  DropdownButtonFormField(
-                           isExpanded: true,
-                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                             horizontal: 3.w),
-                          label: Text("Language",style: 
-                          theme.textTheme.labelLarge?.copyWith(fontSize: 15),),
-                           ),
-                           items: const [
-                                DropdownMenuItem(value: 1, child: Text("English"),),
-                                DropdownMenuItem(value: 2,child: Text("Twi")),
-                                DropdownMenuItem(value: 3,child: Text("Housa")),
-                                DropdownMenuItem(value: 4,child: Text("French")),
-                                DropdownMenuItem(value: 5,child: Text("Japanese")),
-                              ],
-                              onChanged: (context) {}),
-                      ),
-                    ),
-              Card(
-                      child: Padding(
-                        padding:EdgeInsets.symmetric(
-                          horizontal: 2.5.w,
-                        ),
-                        child:  DropdownButtonFormField(
-                           isExpanded: true,
-                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.symmetric(
-                             horizontal: 3.w),
-                          label: Text("Account Purpose",style: 
-                          theme.textTheme.labelLarge?.copyWith(fontSize: 15),),
-                           ),
-                           items: const [
-                                DropdownMenuItem(value: 1, child: Text("Savings"),),
-                                DropdownMenuItem(value: 2,child: Text("Online Shopping")),
-                                DropdownMenuItem(value: 3,child: Text("Investment")),
-                                 ],
-                              onChanged: (context) {}),
-                      ),
-                    ),
+              Padding(
+                padding:EdgeInsets.symmetric(
+                  horizontal: 8.w,
+                ),
+                child:  DropdownButtonFormField(
+                   isExpanded: true,
+                   decoration: InputDecoration(
+                   fillColor: Colors.white,
+                    contentPadding: EdgeInsets.symmetric(
+                     horizontal: 3.w),
+                  label: Text("Language",style: 
+                  theme.textTheme.labelLarge),
+                   ),
+                   items: const [
+                        DropdownMenuItem(value: 1, child: Text("English"),),
+                        DropdownMenuItem(value: 2,child: Text("Twi")),
+                        DropdownMenuItem(value: 3,child: Text("Housa")),
+                        DropdownMenuItem(value: 4,child: Text("French")),
+                        DropdownMenuItem(value: 5,child: Text("Japanese")),
+                      ],
+                      onChanged: (context) {}),
+              ),
+              SizedBox(height: 2.h,),
+              Padding(
+                padding:EdgeInsets.symmetric(
+                  horizontal: 8.w,
+                ),
+                child:  DropdownButtonFormField(
+                   isExpanded: true,
+                   decoration: InputDecoration(
+                     fillColor: Colors.white,
+                    contentPadding: EdgeInsets.symmetric(
+                     horizontal: 3.w),
+                  label: Text("Account Purpose",style: 
+                  theme.textTheme.labelLarge),
+                   ),
+                   items: const [
+                        DropdownMenuItem(value: 1, child: Text("Savings"),),
+                        DropdownMenuItem(value: 2,child: Text("Online Shopping")),
+                        DropdownMenuItem(value: 3,child: Text("Investment")),
+                         ],
+                      onChanged: (context) {}),
+              ),
             ],
           ),
         ),

@@ -1,7 +1,7 @@
+import 'package:cashpay/startupscreens/startuppage.dart';
 import 'package:flutter/material.dart';
 import 'common/theme/app_theme.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'subscribe/cashpayinfo.dart';
 
 void main() {
   runApp(
@@ -12,9 +12,9 @@ void main() {
           darkTheme: AppTheme.darkTheme, // Apply the dark theme
           themeMode: ThemeMode
               .system, // Automatically switch between light and dark theme
-          debugShowCheckedModeBanner: false, 
+          debugShowCheckedModeBanner: false,
           title: "Cash Pay",
-          home: const CashPayInfo(),
+          home: const StartUpPage(),
         );
       },  
     ),

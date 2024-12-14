@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cashpay/common/widgets/custom_buttons.dart';
+// import 'package:flutter_credit_card/flutter_credit_card.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class MyCard extends StatefulWidget {
@@ -13,11 +14,28 @@ class MyCard extends StatefulWidget {
 }
 
 class MyCardState extends State<MyCard> {
+  //initializing card details
+  String cardNumber = "6756 2424 5656 4245";
+  String expiryDate = "06/25";
+  String cardHolderName = "Mimzy Flickr";
+  String cvvCode = "123";
+  bool isCvvFocused = false;
+
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Scaffold(
-        appBar: AppBar(
+        appBar: AppBar(automaticallyImplyLeading: false,
+        leading:  IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              size: 15,
+              color: Color(0xFF08034E),
+            )),
+
           title: const Text("My Card"),
         ),
         resizeToAvoidBottomInset: true,
@@ -35,6 +53,33 @@ class MyCardState extends State<MyCard> {
                   SizedBox(
                     height: 2.5.h,
                   ),
+
+                  // CreditCardWidget(
+                  //   cardNumber: cardNumber,
+                  //   expiryDate: expiryDate,
+                  //   cardHolderName: cardHolderName,
+                  //   cvvCode: cvvCode,
+                  //   showBackView: isCvvFocused,
+                  //   onCreditCardWidgetChange: (CreditCardBrand cardBrand) {},
+                  // ),
+
+                  // CreditCardForm(
+                  //   onCreditCardModelChange: (CreditCardModel data) {
+                  //     setState(() {
+                  //       cardNumber = data.cardNumber;
+                  //       expiryDate = data.expiryDate;
+                  //       cardHolderName = data.cardHolderName;
+                  //       cvvCode = data.cvvCode;
+                  //       isCvvFocused = data.isCvvFocused;
+                  //     });
+                  //   },
+                  //   cardNumber: cardNumber,
+                  //   expiryDate: expiryDate,
+                  //   cardHolderName: cardHolderName,
+                  //   cvvCode: cvvCode,
+                  //   formKey:GlobalKey(),
+                  // ),
+
                   Container(
                     height: 20.h,
                     decoration: BoxDecoration(
@@ -58,9 +103,9 @@ class MyCardState extends State<MyCard> {
                   ),
                   // FormField...
                   TextFormField(
-                      decoration: const InputDecoration(
-                              hintText: 'Enter card number')
-                          .applyDefaults(theme.inputDecorationTheme)),
+                      decoration:
+                          const InputDecoration(hintText: 'Enter card number')
+                              .applyDefaults(theme.inputDecorationTheme)),
                   SizedBox(
                     height: 2.h,
                   ),
@@ -80,15 +125,16 @@ class MyCardState extends State<MyCard> {
                       Expanded(
                         flex: 3,
                         child: TextFormField(
-                            decoration: const InputDecoration(
-                                    hintText: 'Expire date')
-                                .applyDefaults(theme.inputDecorationTheme)),
+                            decoration:
+                                const InputDecoration(hintText: 'Expire date')
+                                    .applyDefaults(theme.inputDecorationTheme)),
                       ),
-                      SizedBox(width: 2.5.w,),
+                      SizedBox(
+                        width: 2.5.w,
+                      ),
                       Expanded(
                         child: TextFormField(
-                            decoration: const InputDecoration(
-                                    hintText: 'CCV')
+                            decoration: const InputDecoration(hintText: 'CCV')
                                 .applyDefaults(theme.inputDecorationTheme)),
                       ),
                     ],

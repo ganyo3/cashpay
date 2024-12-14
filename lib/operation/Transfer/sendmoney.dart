@@ -20,7 +20,20 @@ class SendmoneyState extends State<Sendmoney> {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
-        title: Text("Send Money"),
+         automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              size: 15,
+              color: Color(0xFF08034E),
+            )),
+        title: Text("Send Money", style: theme.textTheme.titleSmall?.copyWith(
+              color: Color(0xFF08034E),
+              fontSize: 15,
+              fontWeight: FontWeight.w800),),
         
       ),
       body: ListView(
@@ -33,16 +46,16 @@ class SendmoneyState extends State<Sendmoney> {
             keyboardType: TextInputType.numberWithOptions(),
               decoration:
                   InputDecoration(
-                    
-                    hintStyle: TextStyle(fontSize: 20),
+                   filled: false,
+                   border: UnderlineInputBorder(),
+                   focusedBorder: UnderlineInputBorder(),
+                      hintStyle: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color:  const Color(0xFF08034E)),
                     hintText: '\$2,420.00',
-                    suffixIcon:  IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.add_box,
-                        color: const Color(0xFF08034E),
-                      )),
-                    )
+                    suffixIcon:  Icon(
+                             Icons.expand_more_rounded,
+                             color: const Color(0xFF08034E),
+                           ),
+                   )
                       .applyDefaults(theme.inputDecorationTheme),
                       ),
           // Row(
@@ -71,17 +84,13 @@ class SendmoneyState extends State<Sendmoney> {
           //     ),
           //   ],
           // ),
-          Divider(
-            color: Colors.grey.shade300,
-            thickness: 5,
-          ),
-          //......................
+         //......................
           Padding(
             padding: EdgeInsets.symmetric(vertical: 2.h),
             child: Text(
-              "Sending Money",
-              style: theme.textTheme.bodySmall?.copyWith(
-                fontSize: 18,
+              "Recent Money Sent",
+              style: theme.textTheme.labelMedium?.copyWith(
+                fontSize: 15,color:  const Color(0xFF08034E),
                 fontWeight: FontWeight.w800,
               ),
             ),
@@ -95,7 +104,7 @@ class SendmoneyState extends State<Sendmoney> {
                 return GestureDetector(
                   onTap: () {},
                   child: Card(
-                    color: Colors.grey.shade200,
+                    color: Colors.grey.shade50,
                     shape: ContinuousRectangleBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -131,16 +140,17 @@ class SendmoneyState extends State<Sendmoney> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Sendmoney from Account",
+                                  "David Saah",
                                   style: theme.textTheme.bodySmall?.copyWith(
-                                    fontSize: 9,
+                                    fontSize: 10,
+                                     fontWeight: FontWeight.w800
                                   ),
                                 ),
                                 Text(
-                                  "Wallet to Other",
+                                  "****56465676",
                                   style: theme.textTheme.bodySmall?.copyWith(
-                                      fontSize: 17,
-                                      fontWeight: FontWeight.bold),
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w800),
                                 )
                               ],
                             ),
@@ -148,15 +158,30 @@ class SendmoneyState extends State<Sendmoney> {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 5.w),
-                          child: Chip(
-                              color: WidgetStatePropertyAll(Colors.white),
-                              side: BorderSide(color: Colors.grey.shade500),
-                              padding: EdgeInsets.symmetric(horizontal: 5.w),
-                              label: Text(
-                                "Send",
-                                style: theme.textTheme.labelMedium
-                                    ?.copyWith(color: Colors.black),
-                              )),
+                          child:Button(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const SignUp()));
+                        },
+                      borderRadius: 6,
+                     borderColor: const Color(0xFF08034E),
+                      fontSize: 9,
+                      textColor: Colors.blue,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 5.w),
+                        buttonText: 'Send',
+                      ),
+                          //  Chip(
+                          //     color: WidgetStatePropertyAll(Colors.white),
+                          //     side: BorderSide(color: Colors.grey.shade500),
+                          //     padding: EdgeInsets.symmetric(horizontal: 5.w),
+                          //     label: Text(
+                          //       "Send",
+                          //       style: theme.textTheme.labelMedium
+                          //           ?.copyWith(color: Colors.black),
+                          //     )),
                         )
                       ],
                     ),

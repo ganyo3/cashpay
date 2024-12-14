@@ -1,8 +1,10 @@
+import 'package:cashpay/common/widgets/custom_buttons.dart';
 import 'package:cashpay/operation/mycard.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import 'operation/Transfer/transfer.dart';
+import 'operation/bankaccount.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -20,12 +22,17 @@ class DashboardState extends State<Dashboard> {
     var theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
+        foregroundColor:  Colors.white,
         backgroundColor: const Color.fromARGB(255, 8, 3, 78),
         actions: [
-          Image.asset("assets/logo/logo1.png"),
-        ],
+          Image.asset(
+            "assets/logo/logo1.png",
+            width: 40,
+          ),
+          ],
+        iconTheme: IconThemeData(color: Colors.white),
       ),
-        //callDrawer(context),
+      //callDrawer(context),
       drawer: callDrawer(context),
       body: ListView(
         children: [
@@ -43,7 +50,7 @@ class DashboardState extends State<Dashboard> {
                   ),
                   Text(
                     "Active Total Balance",
-                    style: theme.textTheme.bodyMedium?.copyWith(
+                    style: theme.textTheme.bodySmall?.copyWith(
                       color: Colors.white,
                     ),
                   ),
@@ -54,10 +61,23 @@ class DashboardState extends State<Dashboard> {
                         "\$8,420.00",
                         style: theme.textTheme.bodyLarge?.copyWith(
                           color: Colors.white,
-                          fontSize: 25,
+                          fontSize: 30,
                         ),
                       ),
-                      ElevatedButton(onPressed: () {}, child: const Text("ADD +"))
+                      Button(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const SignUp()));
+                        },
+                        borderRadius: 6,
+                        color: Colors.white12,
+                        fontSize: 12,
+                        padding:
+                            EdgeInsets.symmetric(vertical: 5, horizontal: 5.w),
+                        buttonText: 'ADD +',
+                      ),
                     ],
                   ),
                   Divider(
@@ -66,22 +86,29 @@ class DashboardState extends State<Dashboard> {
                   ),
                   Row(
                     children: [
-                      ElevatedButton(
-                          style: theme.elevatedButtonTheme.style?.copyWith(
-                            minimumSize:
-                                const WidgetStatePropertyAll(Size(0, 40)),
-                            maximumSize:
-                                const WidgetStatePropertyAll(Size(40, 45)),
-                            padding: WidgetStatePropertyAll(
-                                EdgeInsets.symmetric(horizontal: 2.w)),
-                          ),
-                          onPressed: () {},
-                          child: const Icon(Icons.arrow_upward_rounded)),
+                      Button(
+                        onTap: () {
+                          // Navigator.push(
+                          //     context,
+                          //     MaterialPageRoute(
+                          //         builder: (context) => const SignUp()));
+                        },
+                        borderRadius: 6,
+                        color: Colors.white12,
+                        fontSize: 20,
+                        padding: EdgeInsets.symmetric(
+                            vertical: 0.h, horizontal: 2.5.w),
+                        buttonText: '↑',
+                      ),
+                      SizedBox(
+                        width: 1.w,
+                      ),
                       Expanded(
                           child: Text(
                         "Up by 4% from last month",
-                        style: theme.textTheme.bodyMedium
-                            ?.copyWith(color: Colors.white, fontSize: 13),
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: Colors.white,
+                        ),
                       ))
                     ],
                   ),
@@ -92,6 +119,9 @@ class DashboardState extends State<Dashboard> {
               ),
             ),
           ),
+          SizedBox(
+            height: 2.h,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: 8.w,
@@ -99,9 +129,8 @@ class DashboardState extends State<Dashboard> {
             ),
             child: Text(
               "Operation",
-              style: theme.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.w800,
-              ),
+              style: theme.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w800, color: Color(0xFF08034E)),
             ),
           ),
           //Operation
@@ -112,12 +141,12 @@ class DashboardState extends State<Dashboard> {
                 padding: EdgeInsets.symmetric(horizontal: 8.w),
                 crossAxisCount: 3,
                 mainAxisSpacing: 2.h,
-                crossAxisSpacing: 2.w,
+                crossAxisSpacing: 3.w,
                 children: [
                   //Transfer Button
                   GestureDetector(
-                    onTap: (){
-                       Navigator.push(
+                    onTap: () {
+                      Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const Transfer()));
@@ -125,7 +154,7 @@ class DashboardState extends State<Dashboard> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey),
+                        border: Border.all(color: Colors.grey.shade300),
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(vertical: 3.h),
@@ -133,9 +162,13 @@ class DashboardState extends State<Dashboard> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Image(
-                              height: 4.h,
-                              image:AssetImage("assets/logo/swap.png")),
-                            Text("Transfer", style: theme.textTheme.titleSmall),
+                                height: 3.5.h,
+                                image: AssetImage("assets/logo/swap.png")),
+                            Text("Transfer",
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: Color(0xFF08034E),
+                                )),
                           ],
                         ),
                       ),
@@ -152,7 +185,7 @@ class DashboardState extends State<Dashboard> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        border: Border.all(color: Colors.grey),
+                        border: Border.all(color: Colors.grey.shade300),
                       ),
                       child: Padding(
                         padding: EdgeInsets.symmetric(vertical: 3.h),
@@ -161,32 +194,48 @@ class DashboardState extends State<Dashboard> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Image(
-                              height: 4.h,
-                              image:AssetImage("assets/logo/credit-cards.png")),
-                            Text("My Card", style: theme.textTheme.titleSmall),
+                                height: 3.5.h,
+                                image:
+                                    AssetImage("assets/logo/credit-cards.png")),
+                            Text("My Card",
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: Color(0xFF08034E),
+                                  fontWeight: FontWeight.w800,
+                                )),
                           ],
                         ),
                       ),
                     ),
                   ),
                   //Bank Button
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 3.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          const Icon(
-                            Icons.account_balance_outlined,
-                            color: Colors.black,
-                            size: 30,
-                          ),
-                          Text("Bank", style: theme.textTheme.titleSmall),
-                        ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context, MaterialPageRoute(builder: (context)=>const BankAccount())
+                      );
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(color: Colors.grey.shade300),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(vertical: 3.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            const Icon(
+                              Icons.account_balance_outlined,
+                              color: Colors.black,
+                              size: 30,
+                            ),
+                            Text("Bank",
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  color: Color(0xFF08034E),
+                                  fontWeight: FontWeight.w800,
+                                )),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -194,7 +243,7 @@ class DashboardState extends State<Dashboard> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.grey.shade300),
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(vertical: 3.h),
@@ -203,9 +252,13 @@ class DashboardState extends State<Dashboard> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Image(
-                              height: 4.h,
-                              image:AssetImage("assets/logo/insert-card.png")),
-                          Text("Transfer", style: theme.textTheme.titleSmall),
+                              height: 3.5.h,
+                              image: AssetImage("assets/logo/insert-card.png")),
+                          Text("Transfer",
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: Color(0xFF08034E),
+                                fontWeight: FontWeight.w800,
+                              )),
                         ],
                       ),
                     ),
@@ -214,27 +267,7 @@ class DashboardState extends State<Dashboard> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 3.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                           Image(
-                              height: 4.h,
-                              image:AssetImage("assets/logo/balance.png")),
-                          Text("Budget", style: theme.textTheme.titleSmall),
-                        ],
-                      ),
-                    ),
-                  ),
-                  //Rate
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Colors.grey),
+                      border: Border.all(color: Colors.grey.shade300),
                     ),
                     child: Padding(
                       padding: EdgeInsets.symmetric(vertical: 3.h),
@@ -243,9 +276,37 @@ class DashboardState extends State<Dashboard> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Image(
-                              height: 4.h,
-                              image:AssetImage("assets/logo/business.png")),
-                          Text("Analytics", style: theme.textTheme.titleSmall),
+                              height: 3.5.h,
+                              image: AssetImage("assets/logo/balance.png")),
+                          Text("Budget",
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: Color(0xFF08034E),
+                                fontWeight: FontWeight.w800,
+                              )),
+                        ],
+                      ),
+                    ),
+                  ),
+                  //Rate
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.grey.shade300),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 3.h),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Image(
+                              height: 3.5.h,
+                              image: AssetImage("assets/logo/business.png")),
+                          Text("Analytics",
+                              style: theme.textTheme.bodySmall?.copyWith(
+                                color: Color(0xFF08034E),
+                                fontWeight: FontWeight.w800,
+                              )),
                         ],
                       ),
                     ),
@@ -262,6 +323,10 @@ class DashboardState extends State<Dashboard> {
                 return GestureDetector(
                   onTap: () {},
                   child: Card(
+                    shape: ContinuousRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        side: BorderSide(
+                            width: 1.5.w, color: Colors.grey.shade200)),
                     child: Padding(
                       padding: EdgeInsets.symmetric(
                         horizontal: 5.w,
@@ -276,18 +341,21 @@ class DashboardState extends State<Dashboard> {
                                   style: theme.textTheme.titleSmall?.copyWith(
                                     fontWeight: FontWeight.w800,
                                   )),
-                              const Text("Something"),
+                              Text("Something",
+                                  style: theme.textTheme.bodySmall?.copyWith(
+                                      fontWeight: FontWeight.w800,
+                                      color: Colors.grey)),
                             ],
                           ),
                           SizedBox(
                             height: 1.5.h,
                           ),
                           LinearProgressIndicator(
-                            color: theme.primaryColor,
-                            backgroundColor: Colors.grey,
+                            color: const Color(0xFF298BDB),
+                            backgroundColor: Colors.grey.shade300,
                             borderRadius: BorderRadius.circular(10),
                             minHeight: 1.h,
-                            value: 0.7,
+                            value: 0.5,
                           ),
                           SizedBox(
                             height: 1.5.h,
@@ -296,8 +364,12 @@ class DashboardState extends State<Dashboard> {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Icon(
-                                Icons.account_circle,
+                                Icons.person,
                                 color: theme.primaryColor,
+                                size: 20,
+                              ),
+                              SizedBox(
+                                width: 2.5.w,
                               ),
                               Text("Personal Information",
                                   style: theme.textTheme.titleLarge?.copyWith(
@@ -309,7 +381,7 @@ class DashboardState extends State<Dashboard> {
                             height: 0.5.h,
                           ),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 6.w),
+                            padding: EdgeInsets.symmetric(horizontal: 8.w),
                             child: Text(
                                 "When you signed up for an account, we collect personal information.",
                                 style: theme.textTheme.bodySmall
@@ -332,45 +404,51 @@ class DashboardState extends State<Dashboard> {
   Drawer callDrawer(BuildContext context) {
     var theme = Theme.of(context);
     return Drawer(
-      backgroundColor: const Color.fromARGB(255, 8, 3, 78),
       child: ListView(
         children: [
           ListTile(
-            leading: Image.asset("assets/logo/logo1.png"),
+            leading: Image.asset(
+              "assets/logo/logo1.png",
+              width: 40,
+            ),
             title: Text(
               "CashPay",
-              style: theme.textTheme.labelLarge
-                  ?.copyWith(fontSize: 25, color: Colors.white),
+              style: theme.textTheme.labelMedium
+                  ?.copyWith(fontSize: 15, color: Colors.white),
             ),
           ),
           Divider(
             indent: 5.w,
             endIndent: 5.w,
+            thickness: .4,
             color: Colors.white,
           ),
           ListTile(
             leading: const Icon(
               Icons.info_outline,
               color: Colors.white,
+              size: 20,
             ),
             title: Text(
               "About",
-              style: theme.textTheme.labelLarge?.copyWith(color: Colors.white),
+              style: theme.textTheme.bodySmall?.copyWith(color: Colors.white),
             ),
           ),
           Divider(
             indent: 5.w,
             endIndent: 5.w,
             color: Colors.white,
+            thickness: .25,
           ),
           ListTile(
             leading: const Icon(
               Icons.logout_outlined,
               color: Color.fromARGB(193, 233, 56, 56),
+              size: 20,
             ),
             title: Text(
               "Logout",
-              style: theme.textTheme.labelLarge?.copyWith(color: Colors.white),
+              style: theme.textTheme.bodySmall?.copyWith(color: Colors.white),
             ),
           )
         ],

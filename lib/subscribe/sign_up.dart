@@ -14,15 +14,15 @@ class SignUp extends StatefulWidget {
 }
 
 class SignUpState extends State<SignUp> {
+  bool _isTapped = false;
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     return Scaffold(
-      appBar: AppBar(),
         resizeToAvoidBottomInset: true,
         body: SafeArea(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.h),
+            padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 5.h),
             child: GestureDetector(
               onTap: () {
                 FocusManager.instance.primaryFocus?.unfocus();
@@ -37,7 +37,8 @@ class SignUpState extends State<SignUp> {
                   Text(
                     "Phone\nRegistration",
                     style: theme.textTheme.titleMedium?.copyWith(
-                      fontSize: 18,
+                      color: const Color(0xFF08034E),
+                      fontSize: 15,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
@@ -46,15 +47,22 @@ class SignUpState extends State<SignUp> {
                   ),
                   Text(
                     "Please enter your valid phone number. We will send you a 4-digit code to verify your account.",
-                    style: theme.textTheme.bodySmall,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: const Color(0xFF08034E),
+                      fontSize: 10,
+                    ),
                     softWrap: true,
                   ),
                   SizedBox(
-                    height: 3.h,
+                    height: 5.h,
                   ),
                   Text(
                     "Enter Your Location",
-                    style: theme.textTheme.bodySmall,
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      color: const Color(0xFF08034E),
+                      fontWeight: FontWeight.w800,
+                      fontSize: 10,
+                    ),
                     softWrap: true,
                   ),
                   SizedBox(
@@ -97,16 +105,33 @@ class SignUpState extends State<SignUp> {
                       //Number Field
                       Text(
                         "Enter Your Phone Number",
-                        style: theme.textTheme.bodySmall,
+                        style: theme.textTheme.bodySmall?.copyWith(
+                          color: const Color(0xFF08034E),
+                          fontWeight: FontWeight.w800,
+                          fontSize: 10,
+                        ),
                         softWrap: true,
                       ),
                       SizedBox(
                         height: 1.h,
                       ),
-                      TextFormField(
-                        keyboardType: const TextInputType.numberWithOptions(),
-                        decoration: const InputDecoration(
-                          hintText: '+2330985674',
+                      GestureDetector(
+                          onTap: () {
+                          setState(() {
+                            _isTapped = !_isTapped;
+                          });
+                        },
+                        child: TextFormField(
+                           onTap: () {
+                          setState(() {
+                            _isTapped = !_isTapped;
+                          });
+                        },
+                         keyboardType: const TextInputType.numberWithOptions(),
+                          decoration: InputDecoration(
+                            fillColor: _isTapped? Colors.blue.shade50 : theme.inputDecorationTheme.fillColor ,
+                           hintText: '+2330985674',
+                          ),
                         ),
                       ),
                       // FormField End
@@ -116,17 +141,20 @@ class SignUpState extends State<SignUp> {
                     height: 5.h,
                   ),
                   //Submit Button
-                  Button(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const VerifyCode()));
-                      },
-                      borderRadius: 8,
-                      color: const Color.fromARGB(255, 8, 3, 78),
-                      //  padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20.w),
-                      buttonText: 'Continue'),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 4.w),
+                    child: Button(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const VerifyCode()));
+                        },
+                        borderRadius: 8,
+                        color: const Color(0xFF08034E),
+                        //  padding: EdgeInsets.symmetric(vertical: 5,horizontal: 20.w),
+                        buttonText: 'Continue'),
+                  ),
                   SizedBox(
                     height: 1.h,
                   ),
@@ -138,7 +166,11 @@ class SignUpState extends State<SignUp> {
                         children: [
                           Text(
                             "Please review our",
-                            style: theme.textTheme.bodySmall?.copyWith(),
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              color: const Color(0xFF08034E),
+                              fontWeight: FontWeight.w800,
+                              fontSize: 10,
+                            ),
                           ),
                           TextButton(
                               onPressed: () {},

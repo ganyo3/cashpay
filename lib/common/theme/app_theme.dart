@@ -11,7 +11,6 @@ class AppTheme {
       //AppBarTheme
       appBarTheme: AppBarTheme(
         scrolledUnderElevation: 0,
-
         iconTheme: const IconThemeData(
           color: Color(0xff000000),
         ),
@@ -148,7 +147,7 @@ class AppTheme {
             ),
             borderSide: BorderSide(
               width: 1.w,
-              color: Color(0xffD2EBE7),
+              color: Colors.blue.withOpacity(0.3),
             )),
       ),
       //ExpansionTile
@@ -235,6 +234,12 @@ class AppTheme {
       //     return Colors.grey.shade200;
       //   }),
       // ),
+      //Drawer Theme
+      drawerTheme: DrawerThemeData(
+        width: 50.w,
+        backgroundColor: const Color.fromARGB(255, 8, 3, 78).withOpacity(.85),
+        shape: ContinuousRectangleBorder()
+      ),
       //TextButtonTheme
       textButtonTheme: const TextButtonThemeData(
           style: ButtonStyle(
@@ -271,7 +276,11 @@ class AppTheme {
       ),
 
       indicatorColor: Colors.grey.shade400,
-      switchTheme: const SwitchThemeData(),
+      //SwitchTheme
+      switchTheme: SwitchThemeData(
+        thumbColor:WidgetStatePropertyAll(Colors.white) ,
+          trackOutlineWidth: WidgetStatePropertyAll(0.w),
+        ),
       dialogBackgroundColor: Colors.white,
       primaryColorDark: const Color(0xff000000),
       primaryColorLight: const Color(0xffD2EBE7),

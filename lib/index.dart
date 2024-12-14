@@ -41,10 +41,11 @@ class HomePageState extends State<HomePage> {
       ),
 
       bottomNavigationBar: Container( 
-        margin: EdgeInsets.symmetric(
-        horizontal: 5.w,
-        vertical: 1.h
-      ),
+        margin: EdgeInsets.only(
+        left: 5.w,
+        right: 5.w,
+        bottom: 1.5.h,
+       ),
         padding: EdgeInsets.symmetric(
         horizontal: 3.w,
         ),      

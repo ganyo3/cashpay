@@ -19,16 +19,16 @@ class NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    DateTime today = DateTime.now();
-    DateTime yesterday = today.subtract(const Duration(days: 1));
-    DateTime lastWeek = today.subtract(const Duration(days: 7));
+    // DateTime today = DateTime.now();
+    // DateTime yesterday = today.subtract(const Duration(days: 1));
+    // DateTime lastWeek = today.subtract(const Duration(days: 7));
 
     return DefaultTabController(
       length: 2,
       child: SafeArea(
           child: Scaffold(
         appBar: AppBar(
-          automaticallyImplyLeading: false,
+         automaticallyImplyLeading: false,
           title: Row(
             children: [
               Container(
@@ -43,7 +43,11 @@ class NotificationPageState extends State<NotificationPage> {
               SizedBox(
                 width: 1.5.w,
               ),
-              const Text('Notifications')
+              Text('Notifications',style: theme.textTheme.titleSmall?.copyWith(
+                 color: Color(0xFF08034E),
+                 fontSize: 15,
+                 fontWeight: FontWeight.w800
+              ),)
             ],
           ),
           actions: [
@@ -54,11 +58,11 @@ class NotificationPageState extends State<NotificationPage> {
                 });
               },
               icon: const Icon(
-                Icons.search,
+                Icons.search,size: 15,
               ),
             ),
             SizedBox(
-              width: 2.5.w,
+              width: 2.w,
             ),
           ],
           bottom: TabBar(
@@ -77,7 +81,7 @@ class NotificationPageState extends State<NotificationPage> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  color: theme.primaryColor),
+                  color: Color(0xFF08034E),),
               tabs: [
                 Tab(
                   child: Container(
@@ -94,8 +98,8 @@ class NotificationPageState extends State<NotificationPage> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                             side: BorderSide(
-                                color: theme.primaryColor.withOpacity(.5),
-                                width: 1.2))),
+                                color: Color(0xFF08034E).withOpacity(.5),
+                                width: .2.w))),
                     child: const Text('Notifications (2)'),
                   ),
                 ),
@@ -114,36 +118,17 @@ class NotificationPageState extends State<NotificationPage> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8),
                             side: BorderSide(
-                                color: theme.primaryColor.withOpacity(.5),
-                                width: 1.2))),
+                                color: Color(0xFF08034E).withOpacity(.5),
+                                width: .2.w))),
                     child: const Text('Inbox (1)'),
                   ),
                 ),
-                // Tab(
-                //   child: Container(
-                //     width: 30.w,
-                //     height: 4.h,
-                //     padding: EdgeInsets.symmetric(
-                //       horizontal: 4.w,
-                //     ),
-                //     alignment: Alignment.center,
-                //     decoration: ShapeDecoration(
-                //         shape: RoundedRectangleBorder(
-                //             borderRadius: BorderRadius.circular(8),
-                //             side: BorderSide(
-                //                 color: theme.primaryColor.withOpacity(.5),
-                //                 width: 1.2))),
-                //     child: const Text(
-                //       'Cancelled',
-                //     ),
-                // ),
-                // ),
-              ]),
+               ]),
         ),
         body: Column(
           children: [
             SizedBox(
-              height: 1.h,
+              height: 0.5.h,
             ),
             Visibility(
               visible: showSearch,
@@ -174,7 +159,7 @@ class NotificationPageState extends State<NotificationPage> {
                       ],
                     ),
                     SizedBox(
-                      height: 2.h,
+                      height: 1.h,
                     ),
                   ],
                 ),
@@ -191,12 +176,12 @@ class NotificationPageState extends State<NotificationPage> {
                           onTap: () {},
                           child: Container(
                             margin: EdgeInsets.symmetric(vertical: 0.5.h),
-                            height: 15.h,
+                            height: 12.h,
                             color: Colors.grey.shade300,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
                                 horizontal: 5.w,
-                                vertical: 2.h,
+                                vertical: 1.h,
                               ),
                               child: Column(
                                 children: [
@@ -205,14 +190,14 @@ class NotificationPageState extends State<NotificationPage> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text("CashPay",
-                                          style: theme.textTheme.titleSmall
+                                          style: theme.textTheme.labelMedium
                                               ?.copyWith(
                                             fontWeight: FontWeight.w800,
                                           )),
                                       Text("03:15pm",style:theme.textTheme.labelMedium,),
                                     ],
                                   ),
-                                  Divider(),
+                                  Divider(color: Colors.grey.shade400,),
                                   Row(
                                     children: [
                                       Container(
@@ -232,16 +217,17 @@ class NotificationPageState extends State<NotificationPage> {
                                           children: [
                                             Text("Account",
                                                 style: theme
-                                                    .textTheme.titleLarge
+                                                    .textTheme.labelLarge
                                                     ?.copyWith(
-                                                  fontWeight: FontWeight.w800,
+                                                    fontWeight: FontWeight.w800,
                                                 )),
                                             Text(
                                                 "When you signed up for an account, we collect personal information.",
                                                 style: theme.textTheme.bodySmall
                                                     ?.copyWith(
+                                                      fontSize: 10,
                                                         color: Colors
-                                                            .grey.shade700)),
+                                                            .grey.shade600),),
                                           ],
                                         ),
                                       )
@@ -257,18 +243,18 @@ class NotificationPageState extends State<NotificationPage> {
 
                     //Inbox
                     ListView.builder(
-                      itemCount: 1,
+                      itemCount: 2,
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {},
                           child: Container(
                             margin: EdgeInsets.symmetric(vertical: 0.5.h),
-                            height: 15.h,
+                            height: 13.h,
                             color: Colors.grey.shade300,
                             child: Padding(
                               padding: EdgeInsets.symmetric(
                                 horizontal: 5.w,
-                                vertical: 2.h,
+                                vertical: 1.5.h,
                               ),
                               child: Column(
                                 children: [
@@ -277,35 +263,22 @@ class NotificationPageState extends State<NotificationPage> {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text("Viewed",
-                                          style: theme.textTheme.titleSmall
+                                          style: theme.textTheme.labelMedium
                                               ?.copyWith(
                                             fontWeight: FontWeight.w800,
                                           )),
-                                       Text("Dec 1", style: theme.textTheme.titleSmall
-                                              ?.copyWith(
-                                            fontWeight: FontWeight.w800,
-                                          )),
+                                       Text("Dec 1", style: theme.textTheme.labelMedium,)
                                     ],
                                   ),
-                                  Divider(),
+                                  Divider(color: Colors.grey.shade400,),
                                   Row(
                                     children: [
-                                      // Container(
-                                      //   width: 15.w,
-                                      //   height: 6.h,
-                                      //   decoration: BoxDecoration(
-                                      //       image: DecorationImage(
-                                      //     image: AssetImage(
-                                      //         "assets/logo/cash.png"),
-                                      //     fit: BoxFit.fill,
-                                      //   )),
-                                      // ),
-                                      Expanded(
+                                    Expanded(
                                         child: CircleAvatar(
-                                          backgroundColor: theme.primaryColor,
-                                          radius: 8.w,
+                                          backgroundColor: Color(0xFF08034E).withOpacity(.8),
+                                          radius: 6.w,
                                           child:Text("T",style:theme.textTheme.labelLarge?.copyWith(
-                                            fontSize: 30,
+                                            fontSize: 25,
                                             fontWeight: FontWeight.w700,
                                             color: Colors.white,
                                           ),textAlign: TextAlign.center,),
@@ -318,27 +291,28 @@ class NotificationPageState extends State<NotificationPage> {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text("Transaction",
-                                                style: theme
-                                                    .textTheme.titleLarge
-                                                    ?.copyWith(
-                                                  fontWeight: FontWeight.w700,
-                                                )),
+                                               style: theme.textTheme.labelLarge?.copyWith(
+                                    fontWeight: FontWeight.w800,
+                                  )),
                                             Text(
                                                 "Your cashpay account has been debited GHS500.00.",
                                                 style: theme.textTheme.bodySmall
                                                     ?.copyWith(
+                                                      fontSize: 10,
                                                         color: Colors
-                                                            .grey.shade800)),
+                                                            .grey.shade600)),
                                             Text("Type: CashPay to Wallet; MoMo Transfer",
                                                 style: theme.textTheme.bodySmall
                                                     ?.copyWith(
+                                                      fontSize: 10,
                                                         color: Colors
-                                                            .grey.shade800)),
+                                                            .grey.shade600)),
                                             Text("Balance: GHS2500.76",
                                                 style: theme.textTheme.bodySmall
                                                     ?.copyWith(
+                                                      fontSize: 10,
                                                         color: Colors
-                                                            .grey.shade700)),
+                                                            .grey.shade600)),
                                           ],
                                         ),
                                       )

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-class Confirm_Payment extends StatefulWidget {
+class ConfirmPayment extends StatefulWidget {
   @override
-  const Confirm_Payment({super.key});
+  const ConfirmPayment({super.key});
 
   @override
   State<StatefulWidget> createState() {
-    return Confirm_PaymentState();
+    return ConfirmPaymentState();
   }
 }
 
-class Confirm_PaymentState extends State<Confirm_Payment> {
+class ConfirmPaymentState extends State<ConfirmPayment> {
   @override
   Widget build(BuildContext context) {
   var theme = Theme.of(context);

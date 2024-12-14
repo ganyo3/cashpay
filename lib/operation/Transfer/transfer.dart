@@ -19,7 +19,23 @@ class TransferState extends State<Transfer> {
     var theme = Theme.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Transfer"),
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(
+              Icons.arrow_back_ios_rounded,
+              size: 15,
+              color: Color(0xFF08034E),
+            )),
+        title: Text(
+          "Transfer",
+          style: theme.textTheme.titleSmall?.copyWith(
+              color: Color(0xFF08034E),
+              fontSize: 15,
+              fontWeight: FontWeight.w800),
+        ),
       ),
       body: ListView(
         padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 4.h),
@@ -87,7 +103,7 @@ class TransferState extends State<Transfer> {
           SizedBox(
             height: 2.h,
           ),
-         GestureDetector(
+          GestureDetector(
             onTap: () {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const Sendmoney()));
@@ -96,6 +112,7 @@ class TransferState extends State<Transfer> {
               color: theme.primaryColor,
               shape: ContinuousRectangleBorder(
                 borderRadius: BorderRadius.circular(30),
+                side: BorderSide(color: Color(0xFF08034E),width: 0.35.w),
               ),
               margin: EdgeInsets.zero,
               child: Row(
